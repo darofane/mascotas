@@ -1,5 +1,7 @@
 package com.veterinaria.mascotas.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,8 +11,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "mascotas_adopcion")
-@Getter
-@Setter
+@Data
 public class Mascotas implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -25,5 +26,11 @@ public class Mascotas implements Serializable {
     private Date adoptadoDate;
     @Column(name = "persona_nombre", nullable = false)
     private String personaNombre;
-
+    @Column(name = "nombre_foto", nullable = false)
+    private String nombreFoto;
+    @Column(name = "tipo_foto", nullable = false)
+    private String mimeTypeFoto;
+    @Column(name = "foto", nullable = false)
+    @Lob
+    private String fotoBase64;
 }
